@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research and thought process | Easy Recruitz 365 About Us</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: #f6f6f3; color: #1d2433; line-height: 1.65; }
+    a { color: #12327a; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1080px, 90%); margin: 0 auto; }
+    section { padding: 3.5rem 0; scroll-margin-top: 64px; }
+    section + section { border-top: 1px solid #dcdcd4; }
+    h1 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); color: #12327a; font-weight: 600; line-height: 1.15; }
+    h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); color: #12327a; font-weight: 600; line-height: 1.2; margin-bottom: .6rem; }
+    h3 { font-size: 1.05rem; color: #1d2433; margin-bottom: .3rem; }
+    .lead { color: #566074; max-width: 720px; margin-bottom: 2rem; }
+    .eyebrow { font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #12327a; margin-bottom: .6rem; }
+
+    /* top bar */
+    .bar { position: sticky; top: 0; z-index: 20; background: #fff; border-bottom: 1px solid #dcdcd4; }
+    .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .6rem 0; }
+    .bar img { height: 40px; width: auto; }
+    .bar nav { display: flex; gap: 1.2rem; overflow-x: auto; font-size: .9rem; white-space: nowrap; }
+    .bar nav a { text-decoration: none; color: #3b4558; }
+    .bar nav a:hover { color: #12327a; text-decoration: underline; }
+    .back { font-size: .9rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+
+    .hero { padding: 3.5rem 0 2.5rem; }
+    .hero p { color: #566074; max-width: 720px; margin-top: .9rem; font-size: 1.1rem; }
+
+    /* reference cards */
+    .refs { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 1.4rem; }
+    .ref { background: #fff; border: 1px solid #dcdcd4; display: flex; flex-direction: column; }
+    .ref .shot { display: block; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid #dcdcd4; background: #eee; }
+    .ref .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .3s; }
+    .ref .shot:hover img { transform: scale(1.03); }
+    .ref .txt { padding: 1.2rem 1.3rem 1.3rem; display: flex; flex-direction: column; gap: .8rem; }
+    .ref .meta { font-size: .85rem; color: #566074; }
+    .ref .row { font-size: .93rem; color: #3b4558; }
+    .ref .row b { display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #12327a; margin-bottom: .1rem; }
+    .ref .links { font-size: .88rem; }
+
+    .patterns { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: .8rem 2rem; margin-top: 2rem; }
+    .patterns li { padding-left: 1.6rem; position: relative; color: #3b4558; font-size: .95rem; }
+    .patterns li::before { content: counter(p); counter-increment: p; position: absolute; left: 0; top: 0; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #12327a; color: #fff; font-size: .7rem; display: grid; place-items: center; margin-top: .3rem; }
+    .patterns { counter-reset: p; }
+
+    /* before / after */
+    .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .ba .col { background: #fff; border: 1px solid #dcdcd4; }
+    .ba .tag { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .6rem; margin: 1rem 1.3rem 0; }
+    .ba .before .tag { background: #f1e3e0; color: #8c2f23; }
+    .ba .after .tag { background: #dfeaf0; color: #12327a; }
+    .ba .shot { margin: .8rem 1.3rem; border: 1px solid #dcdcd4; aspect-ratio: 16 / 10; overflow: hidden; display: block; }
+    .ba .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .ba ul { margin: 0 1.3rem 1.3rem 2.5rem; font-size: .93rem; color: #3b4558; }
+    .ba li { margin-bottom: .4rem; }
+
+    /* process */
+    .steps { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+    .steps li { counter-increment: s; background: #fff; border: 1px solid #dcdcd4; padding: 1.2rem 1.3rem; border-top: 3px solid #12327a; }
+    .steps li::before { content: "Step " counter(s); display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #12327a; margin-bottom: .3rem; }
+    .steps p { font-size: .92rem; color: #566074; }
+
+    /* audiences */
+    .aud { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .aud .col { background: #fff; border: 1px solid #dcdcd4; padding: 1.4rem 1.5rem; }
+    .aud dl { display: grid; grid-template-columns: 7.5rem 1fr; gap: .4rem 1rem; font-size: .92rem; margin: .8rem 0 1.2rem; }
+    .aud dt { color: #566074; }
+    .aud ol { list-style: none; counter-reset: f; border-top: 1px solid #dcdcd4; }
+    .aud li { counter-increment: f; display: flex; gap: .8rem; align-items: baseline; padding: .7rem 0; border-bottom: 1px solid #ececE4; font-size: .93rem; }
+    .aud li::before { content: counter(f); width: 1.5rem; height: 1.5rem; flex: none; border-radius: 50%; background: #12327a; color: #fff; display: grid; place-items: center; font-size: .75rem; }
+    .by { font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .1rem .45rem; margin-left: .4rem; }
+    .by.you { background: #1d2433; color: #fff; }
+    .by.us { background: #dfeaf0; color: #12327a; }
+
+    /* decisions */
+    details { background: #fff; border: 1px solid #dcdcd4; margin-bottom: .7rem; }
+    summary { cursor: pointer; padding: 1rem 1.3rem; font-weight: 600; color: #12327a; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.3rem; line-height: 1; }
+    details[open] summary::after { content: "\2212"; }
+    .dbody { padding: 0 1.3rem 1.2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem 2rem; font-size: .93rem; color: #3b4558; }
+    .dbody b { display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #12327a; margin-bottom: .1rem; }
+
+    .cta { text-align: center; padding: 3rem 0 4rem; }
+    .btn { display: inline-block; padding: .85rem 1.8rem; background: #12327a; color: #fff; text-decoration: none; font-weight: 600; border-radius: 3px; }
+    .btn:hover { background: #0c2358; }
+    footer { padding: 1.5rem 0 2.5rem; font-size: .85rem; color: #566074; border-top: 1px solid #dcdcd4; }
+
+    @media (max-width: 860px) {
+      .refs, .ba, .aud { grid-template-columns: 1fr; }
+      .bar nav { display: none; }
+    }
+    @media (max-width: 520px) { .refs { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <img src="assets/logo-hd.png" alt="Easy Recruitz 365">
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#before-after">Before and after</a>
+      <a href="#process">How we worked</a>
+      <a href="#audiences">Two audiences</a>
+      <a href="#decisions">Decisions</a>
+    </nav>
+    <a class="back" href="index.html">&larr; Back to the options</a>
+  </div>
+</div>
+
+<header class="wrap hero">
+  <p class="eyebrow">Research and thought process</p>
+  <h1>How we got from your current page to three new options</h1>
+  <p>We did not start with colours. We started with what your page needs to achieve, looked at how much larger staffing companies solve the same problem, and then designed. This page shows that work.</p>
+</header>
+
+<section id="research">
+  <div class="wrap">
+    <p class="eyebrow">1. Research</p>
+    <h2>What the best staffing websites do</h2>
+    <p class="lead">We studied the About pages of four companies that are far larger than any of us. We looked for patterns they share, not for things to copy. Select a screenshot to see the full page.</p>
+
+    <div class="refs">
+      <article class="ref">
+        <a class="shot" href="docs/references/hays.jpg" target="_blank" rel="noopener"><img src="docs/references/hays-thumb.jpg" alt="Hays About page" loading="lazy"></a>
+        <div class="txt">
+          <div><h3>Hays (United Kingdom)</h3><p class="meta">50+ years, around 1,000 roles filled every working day (their figures)</p></div>
+          <p class="row"><b>What they do well</b>Short headings with one emphasised word, real people photography, icon cards and one primary button.</p>
+          <p class="row"><b>What we applied</b>People in the hero and an icon grid for services (Option 2).</p>
+          <p class="links"><a href="https://hays.com/about-us" target="_blank" rel="noopener">hays.com/about-us</a></p>
+        </div>
+      </article>
+
+      <article class="ref">
+        <a class="shot" href="docs/references/randstad.jpg" target="_blank" rel="noopener"><img src="docs/references/randstad-thumb.jpg" alt="Randstad About page" loading="lazy"></a>
+        <div class="txt">
+          <div><h3>Randstad (Netherlands)</h3><p class="meta">39 markets, about 38,000 employees, nearly 150,000 clients in 2025 (their figures)</p></div>
+          <p class="row"><b>What they do well</b>Key figures with icons, rhythmic short headlines and a founder story with a timeline.</p>
+          <p class="row"><b>What we applied</b>An icon above every big number (Options 1 and 2) and the story tone (Option 3).</p>
+          <p class="links"><a href="https://www.randstad.com/randstad-at-a-glance/" target="_blank" rel="noopener">randstad.com/randstad-at-a-glance</a></p>
+        </div>
+      </article>
+
+      <article class="ref">
+        <a class="shot" href="docs/references/adecco.jpg" target="_blank" rel="noopener"><img src="docs/references/adecco-thumb.jpg" alt="Adecco Group About page" loading="lazy"></a>
+        <div class="txt">
+          <div><h3>The Adecco Group (Switzerland)</h3><p class="meta">100,000+ clients, 60+ markets (their figures)</p></div>
+          <p class="row"><b>What they do well</b>Generous whitespace, one narrow column of short blocks and plain, direct copy.</p>
+          <p class="row"><b>What we applied</b>Whitespace and comfortable reading width (Options 1 and 3).</p>
+          <p class="links"><a href="https://www.adeccogroup.com/who-we-are" target="_blank" rel="noopener">adeccogroup.com/who-we-are</a></p>
+        </div>
+      </article>
+
+      <article class="ref">
+        <a class="shot" href="docs/references/teamlease.jpg" target="_blank" rel="noopener"><img src="docs/references/teamlease-thumb.jpg" alt="TeamLease home page" loading="lazy"></a>
+        <div class="txt">
+          <div><h3>TeamLease (India)</h3><p class="meta">About 25 years, 10,000+ placements a month (their figures)</p></div>
+          <p class="row"><b>What they do well</b>Cutout people on colour, service cards with icons, client logos and awards.</p>
+          <p class="row"><b>What we applied</b>Cutout people with shapes behind them in all three options.</p>
+          <p class="links"><a href="https://group.teamlease.com/" target="_blank" rel="noopener">group.teamlease.com</a></p>
+        </div>
+      </article>
+    </div>
+
+    <ol class="patterns">
+      <li><b>One clear promise</b> at the top, not a wall of text.</li>
+      <li><b>Numbers early</b>, usually with icons.</li>
+      <li><b>Real people</b> in photos, placed deliberately beside short text.</li>
+      <li><b>Short headings</b>, one idea per block, plenty of whitespace.</li>
+      <li><b>One consistent icon style.</b></li>
+      <li><b>Trust signals</b> such as clients, awards and legal details.</li>
+      <li><b>One primary button</b>, repeated.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="before-after">
+  <div class="wrap">
+    <p class="eyebrow">2. Your current page</p>
+    <h2>What we noticed, and what changes</h2>
+    <p class="lead">Your current page already has a good base: real stats, a clear menu and a motto. These are the things that hold it back, and how each option addresses them.</p>
+
+    <div class="ba">
+      <div class="col before">
+        <span class="tag">Current page</span>
+        <a class="shot" href="docs/references/easy-recruitz-current.jpg" target="_blank" rel="noopener"><img src="docs/references/easy-recruitz-current-thumb.jpg" alt="Current About Us page" loading="lazy"></a>
+        <ul>
+          <li>The brand name is written several ways (Easy Recuitz, Easy Recruitz 365, EasyRecruitz).</li>
+          <li>The website uses a double <i>i</i> in the domain, but the email uses a single <i>i</i>.</li>
+          <li>Several buttons go nowhere, and four different buttons compete for attention.</li>
+          <li>Long paragraphs with phrases such as "Nex-Gen" and "Engineered to perfection".</li>
+          <li>No client names, testimonials or awards to back up the claims.</li>
+          <li>One stock photo ("HAPPINESS") that has nothing to do with the company.</li>
+          <li>Images have no alt text, which hurts accessibility and search.</li>
+        </ul>
+      </div>
+      <div class="col after">
+        <span class="tag">New direction (Option 2 shown)</span>
+        <a class="shot" href="designs/2-corporate/index.html"><img src="docs/previews/design-2-desktop.jpg" alt="Option 2 preview" loading="lazy"></a>
+        <ul>
+          <li>A clear promise and a single primary button in the first screen.</li>
+          <li>Your real numbers (200+, 500+, 80+, 400+) directly under the hero, with icons.</li>
+          <li>Cutout people on shapes, instead of unrelated stock imagery.</li>
+          <li>Short, concrete copy in place of buzzwords.</li>
+          <li>Two journeys, one for companies that hire and one for job seekers.</li>
+          <li>Works on phones, with a mobile menu and tap-friendly buttons.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <p class="eyebrow">3. Method</p>
+    <h2>How we worked</h2>
+    <p class="lead">The order below is the order the work was done in.</p>
+    <ol class="steps">
+      <li><h3>Diagnose</h3><p>Reviewed the live page as a visitor sees it, and noted what is missing or confusing.</p></li>
+      <li><h3>Benchmark</h3><p>Studied Hays, Randstad, Adecco and TeamLease, and listed the patterns they share.</p></li>
+      <li><h3>Define the audience</h3><p>Recognised two audiences, employers and job seekers, and wrote down what each needs.</p></li>
+      <li><h3>Plan the page</h3><p>Ordered the sections to answer a visitor's questions one after another.</p></li>
+      <li><h3>Explore options</h3><p>Built three different directions from the same content, so you can choose by feel.</p></li>
+      <li><h3>Refine</h3><p>Simplified the look, made small text readable, and replaced generic form controls with designed ones.</p></li>
+      <li><h3>Check</h3><p>Reviewed every option at desktop and phone sizes and fixed what looked wrong.</p></li>
+      <li><h3>Plan what is next</h3><p>Listed the open points: real photos, confirmed numbers, client logos and how job seekers apply.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <p class="eyebrow">4. Product thinking</p>
+    <h2>Two audiences, two journeys</h2>
+    <p class="lead">A staffing firm serves two very different visitors. Your current page speaks mostly to one of them. Every option lets each visitor find their own path quickly.</p>
+
+    <div class="aud">
+      <div class="col">
+        <h3>Employer or hiring manager</h3>
+        <dl>
+          <dt>Goal</dt><dd>Fill a role quickly with someone who is verified.</dd>
+          <dt>Main worry</dt><dd>"Will I waste time on poor profiles?"</dd>
+          <dt>Main action</dt><dd><b>Talk to a recruiter</b></dd>
+        </dl>
+        <ol>
+          <li>Tell us what you need <span class="by you">You</span></li>
+          <li>We search and screen <span class="by us">Us</span></li>
+          <li>We verify <span class="by us">Us</span></li>
+          <li>Interview and hire <span class="by you">You</span></li>
+        </ol>
+      </div>
+      <div class="col">
+        <h3>Job seeker or candidate</h3>
+        <dl>
+          <dt>Goal</dt><dd>Find a suitable role and get through the process.</dd>
+          <dt>Main worry</dt><dd>"Is this a real opportunity, and what happens next?"</dd>
+          <dt>Main action</dt><dd><b>Share your resume</b></dd>
+        </dl>
+        <ol>
+          <li>Send us your resume <span class="by you">You</span></li>
+          <li>We match you to roles <span class="by us">Us</span></li>
+          <li>Assessment and verification <span class="by us">Us</span></li>
+          <li>Interview and join <span class="by you">You</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="decisions">
+  <div class="wrap">
+    <p class="eyebrow">5. Reasoning</p>
+    <h2>Decisions we made, and why</h2>
+    <p class="lead">Each choice had alternatives. Select one to see what we weighed.</p>
+
+    <details>
+      <summary>Three options instead of one</summary>
+      <div class="dbody"><p><b>Why</b>It lets you react to a real choice, so the decision is about what fits your brand.</p><p><b>Trade-off</b>More to look at, and you have to choose.</p></div>
+    </details>
+    <details>
+      <summary>Employer is the main action in the hero</summary>
+      <div class="dbody"><p><b>Why</b>Employers are the paying customer, so that action gets the most weight. Job seekers keep a clear secondary link.</p><p><b>Trade-off</b>Candidates get a smaller entry point. An option is two equal entry points under the hero.</p></div>
+    </details>
+    <details>
+      <summary>Tabs for the two journeys</summary>
+      <div class="dbody"><p><b>Why</b>Keeps the page short and gives each visitor a focused view. Every step is tagged "You" or "Us" so people see what is expected of them.</p><p><b>Trade-off</b>Hidden content is less discoverable, so the hero link opens the right tab, and without JavaScript both journeys are shown.</p></div>
+    </details>
+    <details>
+      <summary>A two-button choice in the contact form, not a dropdown</summary>
+      <div class="dbody"><p><b>Why</b>It matches the tabs, is quicker to use and shows both choices at once. Buttons on the page pre-select the right one.</p><p><b>Trade-off</b>Slightly more code than a standard dropdown.</p></div>
+    </details>
+    <details>
+      <summary>People as cutouts with shapes behind them</summary>
+      <div class="dbody"><p><b>Why</b>It looks cleaner and more modern than boxed photos, and it is the style used by TeamLease and Hays.</p><p><b>Trade-off</b>It needs clean photos of single people. Photos of your real team will work best.</p></div>
+    </details>
+    <details>
+      <summary>Your real numbers, no invented proof</summary>
+      <div class="dbody"><p><b>Why</b>The figures come from your current page. We did not invent client names or testimonials, because fake proof can damage trust.</p><p><b>Trade-off</b>The page has less social proof until real logos and testimonials are added.</p></div>
+    </details>
+    <details>
+      <summary>Plain HTML, not a framework</summary>
+      <div class="dbody"><p><b>Why</b>An About page is static content, so it opens with a double-click and needs no build step.</p><p><b>Trade-off</b>It can be moved to React or your content system later if needed.</p></div>
+    </details>
+  </div>
+</section>
+
+<div class="cta wrap">
+  <h2>Ready to compare the options?</h2>
+  <p class="lead" style="margin: .4rem auto 1.4rem;">Open each design on your laptop and phone, then tell us which one feels like Easy Recruitz.</p>
+  <a class="btn" href="index.html">View the three options</a>
+</div>
+
+<footer>
+  <div class="wrap">Mock-up for review. Photos shown are stand-ins until real team photos are available. Screenshots of other websites belong to their respective companies and are used for reference only. Full written version: <a href="README.md">README</a>.</div>
+</footer>
+
+</body>
+</html>

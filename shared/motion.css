@@ -1,0 +1,111 @@
+/* Motion layer shared by the three designs. Every effect is switched off for people who prefer reduced motion.
+   Content stays visible if JavaScript is off (the .js class is only added by script.js). */
+:root { --m-accent: #12327a; }
+body[data-design="corporate"] { --m-accent: #19b3c6; }
+body[data-design="warm"] { --m-accent: #c99a2e; }
+
+/* Scroll reveal: fade and rise, staggered through --d */
+.js .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+.js .rv.in { opacity: 1; transform: none; }
+body[data-design="editorial"] .rv { transform: translateY(12px); transition-duration: .9s; }
+
+/* People: the photo rises, and the shapes behind it grow in */
+.js .rvp img { opacity: 0; transform: translateY(36px); transition: opacity .8s ease .15s, transform .9s cubic-bezier(.2,.7,.2,1) .15s; }
+.js .rvp::before, .js .rvp::after { opacity: 0; scale: .6; transition: opacity .7s ease, scale .9s cubic-bezier(.2,.7,.2,1); }
+.js .rvp.in img { opacity: 1; transform: none; }
+.js .rvp.in::before, .js .rvp.in::after { opacity: 1; scale: 1; }
+.js .rvp.in::after { transition-delay: .2s; }
+.js .hero-art img:nth-child(2) { transition-delay: .35s; }
+
+/* Switching tabs fades the new journey in */
+@keyframes panelIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.js .panel:not([hidden]) { animation: panelIn .5s ease both; }
+
+/* Hover: small, quick, purposeful */
+.btn, .btn-teal { transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+.btn:hover { transform: translateY(-2px); }
+.grid2 > div { transition: background .25s ease; }
+.grid2 > div:hover { background: #f4f9fb; }
+.grid2 > div:hover .ic, .list li:hover .ic, .figures-grid > div:hover .ic, .stats-grid > div:hover .ic { transform: translateY(-4px); }
+.ic { transition: transform .25s ease; }
+.list li h3, .motto dt { transition: transform .25s ease; }
+.list li:hover h3 { transform: translateX(6px); }
+.rvp.in:hover img { transform: translateY(-6px); transition-delay: 0s; }
+details { transition: background .2s ease; }
+details[open] { background: rgba(255,255,255,.6); }
+
+/* Slow ambient movement on the decorative shapes */
+@keyframes floaty { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+body[data-design="corporate"] .cutout::after, body[data-design="corporate"] .panel-photo::after { animation: floaty 6s ease-in-out infinite; }
+body[data-design="corporate"] .hero::before { animation: floaty 9s ease-in-out infinite; }
+body[data-design="warm"] .panel-photo::before { animation: breathe 9s ease-in-out infinite; }
+body[data-design="editorial"] .cutout::after, body[data-design="editorial"] .panel-photo::after { animation: floaty 8s ease-in-out infinite; }
+
+/* Scrolling strip of what the firm covers (the same idea as a client-logo strip, but with real content) */
+.marquee { overflow: hidden; white-space: nowrap; border-top: 1px solid var(--p-rule, #d9d5ca); border-bottom: 1px solid var(--p-rule, #d9d5ca); padding: .85rem 0; }
+.marquee .track { display: inline-flex; width: max-content; animation: scrollx 45s linear infinite; }
+.marquee:hover .track { animation-play-state: paused; }
+.marquee span { padding: 0 1.4rem; font-size: .95rem; position: relative; }
+.marquee span::after { content: ""; position: absolute; right: -3px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: var(--m-accent); }
+@keyframes scrollx { to { transform: translateX(-50%); } }
+body[data-design="editorial"] .marquee { font-family: 'Newsreader', Georgia, serif; font-style: italic; color: #5d6472; }
+body[data-design="corporate"] .marquee { background: #0a1d47; color: #fff; border: 0; font-weight: 500; }
+
+/* Reading progress line */
+.progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: var(--m-accent); z-index: 9998; }
+
+/* Quick call button on phones */
+.call-fab { display: none; }
+@media (max-width: 720px) {
+  .call-fab { display: inline-flex; align-items: center; gap: .4rem; position: fixed; right: 14px; bottom: 14px; z-index: 40; background: var(--m-accent); color: #fff; font: 600 .9rem/1 system-ui, sans-serif; padding: .85rem 1.1rem; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  body[data-design="corporate"] .call-fab { color: #05222a; }
+  .footer { padding-bottom: 5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .rv, .js .rvp img, .js .rvp::before, .js .rvp::after { opacity: 1 !important; transform: none !important; scale: 1 !important; transition: none !important; }
+  .js .panel:not([hidden]), .marquee .track, body .cutout::after, body .panel-photo::after, body .panel-photo::before, body .hero::before { animation: none !important; }
+}
+
+/* Phones: the sticky header slides away when scrolling down and returns when scrolling up, so it does not cover the content */
+.site-header { transition: transform .3s ease; }
+@media (max-width: 720px) { .site-header.hide { transform: translateY(-100%); } }
+
+/* ---------- Orbs: real shapes behind the people (not a background gradient) ----------
+   Each orb has its own size, colour, float path, speed and parallax depth, so they never move in unison. */
+.cutout, .panel-photo { overflow: hidden; }
+.orb { position: absolute; z-index: 0; border-radius: 50%; pointer-events: none; will-change: transform, translate;
+  background: var(--c); width: var(--w); aspect-ratio: 1; left: var(--x); top: var(--y);
+  transform: translate(calc(var(--mx, 0) * var(--depth) * 1px), calc(var(--my, 0) * var(--depth) * 1px + var(--sy, 0) * var(--depth) * -1.4px));
+  transition: transform .5s ease-out;
+  animation: var(--fl) var(--dur) ease-in-out var(--dl) infinite; animation-play-state: paused; }
+.live .orb { animation-play-state: running; }
+.cutout img, .panel-photo img { position: relative; z-index: 2; }
+
+.o1 { --w: 78%; --x: 8%;  --y: 12%; --depth: 6;  --dur: 13s; --dl: -3s; --fl: fl1; --c: var(--o1); }
+.o2 { --w: 36%; --x: 62%; --y: 4%;  --depth: 16; --dur: 9s;  --dl: -6s; --fl: fl2; --c: var(--o2); }
+.o3 { --w: 24%; --x: -4%; --y: 34%; --depth: 22; --dur: 11s; --dl: -2s; --fl: fl3; --c: var(--o3); }
+.o4 { --w: 14%; --x: 76%; --y: 62%; --depth: 30; --dur: 7s;  --dl: -4s; --fl: fl4; --c: var(--o4); }
+
+@keyframes fl1 { 0%,100% { translate: 0 0; } 50% { translate: calc(var(--amp, 1) * 8px) calc(var(--amp, 1) * -10px); } }
+@keyframes fl2 { 0%,100% { translate: 0 0; } 33% { translate: calc(var(--amp, 1) * -12px) calc(var(--amp, 1) * 10px); } 66% { translate: calc(var(--amp, 1) * 6px) calc(var(--amp, 1) * 16px); } }
+@keyframes fl3 { 0%,100% { translate: 0 0; } 50% { translate: calc(var(--amp, 1) * 16px) calc(var(--amp, 1) * -14px); } }
+@keyframes fl4 { 0%,100% { translate: 0 0; } 25% { translate: calc(var(--amp, 1) * -10px) calc(var(--amp, 1) * -12px); } 75% { translate: calc(var(--amp, 1) * 8px) calc(var(--amp, 1) * 12px); } }
+
+/* entrance: orbs pop in one after another once the section scrolls into view */
+.js .rvp .orb { opacity: 0; scale: .4; transition: opacity .7s ease, scale .9s cubic-bezier(.2,.8,.2,1), transform .5s ease-out; }
+.js .rvp.in .orb { opacity: 1; scale: 1; }
+.js .rvp.in .o2 { transition-delay: .1s, .1s, 0s; }
+.js .rvp.in .o3 { transition-delay: .2s, .2s, 0s; }
+.js .rvp.in .o4 { transition-delay: .3s, .3s, 0s; }
+
+/* per design personality */
+body[data-design="editorial"] { --amp: .6; --o1: #dfeaf0; --o2: #c3d6e4; --o3: #a9c2d8; --o4: #12327a; }
+body[data-design="corporate"] { --amp: 1.1; --o1: #cfe8ee; --o2: #19b3c6; --o3: #9fd8e2; --o4: #16408f; }
+body[data-design="warm"] { --amp: .8; --o1: #ecdfc4; --o2: #e0c88f; --o3: #d6b56a; --o4: #c99a2e; }
+body[data-design="warm"] .o1 { animation: fl1 13s ease-in-out -3s infinite, morph 16s ease-in-out infinite; animation-play-state: paused, paused; border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%; }
+body[data-design="warm"] .live .o1 { animation-play-state: running, running; }
+@keyframes morph { 0%,100% { border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%; } 50% { border-radius: 44% 56% 42% 58% / 56% 44% 58% 42%; } }
+
+@media (prefers-reduced-motion: reduce) { .orb { animation: none !important; transform: none !important; } .js .rvp .orb { opacity: 1 !important; scale: 1 !important; } }

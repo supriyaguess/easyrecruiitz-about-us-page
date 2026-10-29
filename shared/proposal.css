@@ -1,0 +1,5 @@
+/* Thin bar shown above each proposed page so reviewers know they are looking at a proposal */
+.proposal-bar { background: #111827; color: #e5e7eb; font: 500 13px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif; padding: .55rem 1rem; display: flex; justify-content: space-between; align-items: center; gap: .5rem 1.2rem; flex-wrap: wrap; position: relative; z-index: 30; }
+.proposal-bar b { color: #fff; letter-spacing: .06em; text-transform: uppercase; }
+.proposal-bar nav { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+.proposal-bar a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
