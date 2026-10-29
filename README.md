@@ -1,6 +1,6 @@
-# Easy Recruitz 365 – About Us Page Redesign (3 Design Options)
+# Easy Recruitz 365 – About Us Page Redesign (7 Design Options)
 
-A responsive redesign of the About Us page for **Easy Recruitz 365**, a recruitment and staffing firm based in New Delhi. The project delivers three alternative designs built from the same content, backed by research into how large staffing companies present themselves.
+A responsive redesign of the About Us page for **Easy Recruitz 365**, a recruitment and staffing firm based in New Delhi. The project delivers seven alternative designs built from the same content, backed by research into how large staffing companies present themselves.
 
 - Original page: <https://easyrecruiitz.com/about-us/>
 - Status: **design mock-up** (not a production site)
@@ -11,7 +11,7 @@ A responsive redesign of the About Us page for **Easy Recruitz 365**, a recruitm
 ## 1. Viewing the project
 
 1. Clone or download the repository.
-2. Open **`index.html`** in a browser. It shows the three designs side by side.
+2. Open **`index.html`** in a browser. It shows the seven designs, newest first.
 3. Open each design on a laptop, then on a phone (or narrow the browser window). All three are responsive.
 
 You can also serve it locally with `python3 -m http.server` and open `http://localhost:8000`.
@@ -23,7 +23,7 @@ When a page opens, a short loader (logo and a thin progress line) plays for abou
 The goal of the project is not just a prettier page. It is to show how a page like this should be **diagnosed, benchmarked, designed and verified**. The steps below are the order in which the work was done.
 
 ### Step 1. Understand the problem (diagnose before designing)
-- Audited the live page as a visitor would see it (see [section 6](#6-audit-of-the-original-page)), not just its text.
+- Audited the live page as a visitor would see it (see [section 7](#7-audit-of-the-original-page)), not just its text.
 - Lesson learned early: a text-only fetch of the page showed the four stats as "0 +", which looked like a bug. Rendering the page in a real browser showed the real numbers (200+, 500+, 80+, 400+). **Check the rendered page, not just the source.**
 - Real problems found: inconsistent brand name, mismatched domain and email, dead buttons, four competing calls to action, buzzword copy, no proof, one off-brand stock photo.
 
@@ -33,7 +33,7 @@ The goal of the project is not just a prettier page. It is to show how a page li
 
 ### Step 3. Define who the page is for (product thinking)
 - A staffing firm has **two audiences**: employers who pay, and job seekers who supply the talent. The original page spoke to only one.
-- Wrote down each audience's goal, main worry and primary action (see [section 8](#8-product-thinking-two-audiences-two-journeys)), then designed the page around the questions each one asks.
+- Wrote down each audience's goal, main worry and primary action (see [section 9](#9-product-thinking-two-audiences-two-journeys)), then designed the page around the questions each one asks.
 
 ### Step 4. Decide the page structure
 - Ordered the sections to answer visitor questions in sequence: *Who are you? What proof do you have? What do you do? How does it work? Why trust you? What do I do next?*
@@ -65,7 +65,7 @@ The goal of the project is not just a prettier page. It is to show how a page li
 
 ### Step 8. Verify, find bugs, be honest about limits
 - Rendered every design at desktop and phone width and read the screenshots critically. This caught real bugs: a CSS class name clash that broke a section, cutouts cropped at the head, and a hero circle clipped at the top. All were fixed.
-- Stat counters could not be exercised in headless Chrome, so the counter function was tested separately. Limits that remain are listed in [section 12](#12-known-limitations).
+- Stat counters could not be exercised in headless Chrome, so the counter function was tested separately. Limits that remain are listed in [section 14](#14-known-limitations).
 
 ### Step 9. What would be done next (proposed, not yet measured)
 If this went live, success would be judged by:
@@ -107,14 +107,19 @@ Photos carry most of the trust on a staffing site. The current set is stock and 
 ```
 index.html              Chooser page linking to the three designs
 designs/
-  1-editorial/          Design 1
-  2-corporate/          Design 2
-  3-warm/               Design 3
+  4-statement/          Option 1: bold colour blocks, floating action card
+  5-arch/               Option 2: dark theme, arch, scam alert
+  6-lower/              Option 3: lowercase headlines, moving illustration
+  7-brand/              Option 4: exact logo colours
+  1-editorial/          Option 5: calm, editorial
+  2-corporate/          Option 6: big-company staffing look
+  3-warm/               Option 7: warm, personal letter
 shared/
   script.js             Mobile menu, loader, stat counters, demo form
   loader.css            Page loader styles
   process.css           Two-track "How it works" tabs (employers / job seekers)
   motion.css            Scroll reveals, moving orbs behind people, services strip, progress line, call button
+  sections.css/js       New sections: industries, team, typical hire, stories, picker, safety notice
   proposal.css          Thin "design proposal" bar shown above each option
 assets/
   logo-hd.png           Company logo (upscaled 3x and sharpened)
@@ -122,7 +127,7 @@ assets/
 docs/references/        Screenshots of the reference About pages
 ```
 
-## 5. The three designs
+## 5. The first three designs (Options 5 to 7 in the chooser)
 
 | | 1 – Editorial | 2 – Corporate | 3 – Warm letter |
 |---|---|---|---|
@@ -132,7 +137,24 @@ docs/references/        Screenshots of the reference About pages
 
 All three share the same content. They differ in layout, typography, colour and photo placement. Each includes a responsive navigation menu, the loader, a consistent set of line icons, animated stat counters, a two-track "How it works" section and a demo contact form.
 
-## 6. Audit of the original page
+## 6. Second round of designs
+
+After the first three designs, a second round of research looked at more firms, including one Indian group, and produced four more directions. Free hand was given on data, photos and ideas, with one rule: the tagline and four-point motto stay exactly as they are.
+
+| Option (folder) | Inspired by | What was taken and made our own |
+|---|---|---|
+| **1 – Statement** (`4-statement`) | [Michael Page](https://www.michaelpage.co.uk/about-us), [Kelly](https://www.kellyservices.com/global/about-us) | A floating "Ready to hire?" card that overlaps the hero with two actions, an audience switch ("Find a job / Hire talent") in the header, three bold action tiles, heavy type with one italic serif word, solid colour blocks, and the motto as a large numbered "How we do it" block |
+| **2 – Arch (dark)** (`5-arch`) | [Quess Corp](https://www.quesscorp.com/about-us) | A dark theme, a large animated blue curve, people rising out of an arch, services shown as a list that reacts on hover, and a "Job scam alert" chip that stays on screen |
+| **3 – Lowercase** (`6-lower`) | [Randstad India](https://www.randstad.in/about-us/) | Large light lowercase headlines (the motto text itself is unchanged, only displayed in lowercase), and an animated bar illustration ("candidates in, right people out") instead of a stock photo in the hero |
+| **4 – Brand colours** (`7-brand`) | The logo itself | Colours sampled from the logo file: navy `#023376`, turquoise `#02bfc9`, champagne gold `#e7ca7b`. The hero echoes the circular swoosh of the logo mark with a rotating turquoise arc, the headline uses a serif that matches the gold "ER", and a three-colour bar runs through the page |
+
+The reference screenshots are in `docs/references/` (`michaelpage`, `quess`, `randstadin`, `kelly`). Kelly, Michael Page and Randstad India pages were captured with cookie banners dismissed where possible, and the Michael Page screenshot still shows a promotional pop-up.
+
+Ten URLs were tried in this round. Four worked. Six returned errors or blocked automated access (Robert Half, ManpowerGroup, Korn Ferry, Apna, Naukri, Gi Group), so they are not part of the comparison.
+
+**Data and photos.** In this round all supporting content is illustrative: the team profiles, testimonials and their results, the timeline pace, the industry list and the safety promises (see section 11). Photos are the same placeholder cutouts. All of it must be replaced with approved, real content.
+
+## 7. Audit of the original page
 
 Screenshot: [`docs/references/easy-recruitz-current.jpg`](docs/references/easy-recruitz-current.jpg)
 
@@ -149,7 +171,7 @@ Screenshot: [`docs/references/easy-recruitz-current.jpg`](docs/references/easy-r
 
 The original page's stats (taken from the rendered page) are **200+ Joinings, 500+ Mass Recruitments, 80+ Verifications and 400+ Assessments Done**. The new designs use the same figures. The client should confirm them.
 
-## 7. Market research
+## 8. Market research
 
 The reference companies are all much larger than Easy Recruitz. Randstad, Adecco and Hays are global listed companies, and TeamLease is the largest listed staffing company in India.
 
@@ -183,7 +205,7 @@ The screenshots belong to the respective companies. They are included for compar
 6. Trust signals such as clients, awards and legal details.
 7. One primary call to action, repeated.
 
-## 8. Product thinking: two audiences, two journeys
+## 9. Product thinking: two audiences, two journeys
 
 A staffing firm's website has two very different visitors, and the original page only spoke to one of them (employers). The original site's own menu has separate **Employer** and **Employee** entries, so both audiences are real.
 
@@ -212,7 +234,7 @@ Journeys as designed:
 
 The job-seeker steps are a sensible default built from the services the firm already lists (verification, assessments, joining support). The client should confirm the real candidate process before launch.
 
-## 9. Page structure and UX reasoning
+## 10. Page structure and UX reasoning
 
 The page answers the questions a hiring manager asks, in the order they ask them.
 
@@ -234,7 +256,24 @@ Placement decisions:
 - **On phones the layout collapses to one column** with large tap targets and a hamburger menu.
 - **The loader is short** (about 1.4 seconds) so it never makes visitors wait.
 
-## 10. Original page vs the new designs
+## 11. New ideas added beyond the current website
+
+The current website's tagline and four-point motto were kept exactly as they are. Everything else was open for improvement, so the pages go further than the existing content. The ideas below came from research into how larger staffing firms and common About-page guidance (team profiles, concrete proof, trust notices) approach the same job.
+
+| New section | Idea | Why it earns its place | Where the idea came from |
+|---|---|---|---|
+| **Industries we hire for** | Eight icon cards with example roles | Employers ask "do you hire for my sector?" before anything else | Common on large staffing sites, and recommended as industry-specific proof |
+| **Meet the team** | Four profile cards: photo, name, speciality, chips and a one-line promise that appears on hover or focus | People hire people. A named recruiter feels safer than "the team" | Team profiles with short bios and progressive reveal are standard About-page advice |
+| **A typical hire, day by day** | Five-step timeline that draws itself as it scrolls into view | Shows pace and removes the fear of waiting, the main worry of an employer | Milestone timelines are a recognised About-page pattern |
+| **What working with us feels like** | Testimonial carousel; each story names the type of company and a result, not a person | Proof matters most. Describing the company by type and city is an accepted way to show proof when a name cannot be shown | Guidance on anonymised descriptors and concrete metrics |
+| **Not sure where to start?** | One-question picker that recommends a service and pre-selects the contact form | Sends the visitor to the right service without a form, and routes enquiries | Interactive qualification patterns |
+| **Stay safe** | A clear notice: no fee from job seekers, official email only, no job offers over chat alone | Recruitment fraud is common in India and a clear statement builds trust with candidates | TeamLease and Cognizant publish similar notices |
+
+Each new section also uses the shared icon set, and reveals as the visitor scrolls.
+
+**All of this content is sample content.** The profiles (names, roles, quotes), the testimonials and their results, the timeline pace, the industry list and the safety promises were written for the mock-up. Each section carries a visible "Sample" or "To be confirmed" tag on the page. No real company names were used for the testimonials. Before launch, replace them with real team members, real stories (with permission), the real timeline and promises the firm can actually keep.
+
+## 12. Original page vs the new designs
 
 | Aspect | Original | New designs |
 |---|---|---|
@@ -250,7 +289,7 @@ Placement decisions:
 | Loader | None | Included |
 | Client logos and testimonials | None | **Still none** (real data needed) |
 
-## 11. Product review and decision log
+## 13. Product review and decision log
 
 An honest review of the work from a product point of view: what works, what is missing, and what the recommended next steps are.
 
@@ -291,10 +330,12 @@ Items 5 to 7 are product suggestions based on common practice, not findings from
 | Scroll reveals, a reading-progress line and a services strip | No motion | Gives a sense of progress and of what the firm covers. The strip uses real content from the current site instead of placeholder client logos, which would be dishonest | It is not a substitute for real client logos, which are still missing |
 | Header hides on scroll down on phones | Always-visible sticky header | A tall sticky bar uses a large part of a small screen | Visitors must scroll up slightly to reach the menu |
 | A "Call us" button on phones | Form only | Many phone visitors prefer to call, and it costs one tap | The number is from the current website and must be confirmed |
+| Seven options after two research rounds, including one in the exact logo colours | Stop at three | A second round adds genuinely different directions, and a brand-colour option shows the page as unmistakably the client's own | The choice is harder. The chooser orders them newest first and says who each suits |
 | Mock-up scope: no security hardening | Production-grade hardening | The request was for a design mock-up. Hardening belongs to the production build | The form is a demo and must be rebuilt for production |
 
-## 12. Known limitations
+## 14. Known limitations
 
+- **Sample data.** The team profiles, testimonials, timeline and safety promises are illustrative (see section 9). They must be replaced with real, approved content.
 - **Photos are placeholders for the mock-up.** Three of the people photos were supplied by the project owner and the rest were found online. None are confirmed as licensed for production. Some may be AI-generated and one has a faint watermark pattern. Replace them with licensed images or photos of the real team before launch.
 - **Cutouts were generated automatically** with the macOS Vision framework. A designer should retouch them for production.
 - **The contact form is a demo.** Nothing is submitted anywhere.
@@ -306,7 +347,7 @@ Items 5 to 7 are product suggestions based on common practice, not findings from
 - **Menu links do not go anywhere yet.**
 - **Testing:** checked in desktop Chrome and a 500 px wide mobile layout through screenshots. It has not been tested on physical phones, and the stat counters could not be exercised in headless Chrome (the counter function itself was tested separately).
 
-## 13. Pre-launch checklist
+## 15. Pre-launch checklist
 
 - [ ] Licensed or real team photos
 - [ ] Confirm brand spelling and domain
@@ -317,13 +358,14 @@ Items 5 to 7 are product suggestions based on common practice, not findings from
 - [ ] Link the menu to real pages
 - [ ] Obtain the original HD or vector logo
 
-## 14. Sources
+## 16. Sources
 
 - Original page: <https://easyrecruiitz.com/about-us/>
 - Hays: <https://hays.com/about-us>
 - Randstad: <https://www.randstad.com/randstad-at-a-glance/>
 - The Adecco Group: <https://www.adeccogroup.com/who-we-are>
 - TeamLease: <https://group.teamlease.com/>
+- Second round: [Michael Page](https://www.michaelpage.co.uk/about-us), [Quess Corp](https://www.quesscorp.com/about-us), [Randstad India](https://www.randstad.in/about-us/), [Kelly Services](https://www.kellyservices.com/global/about-us)
 - Staffing website roundups: [CyberOptik](https://cyberoptik.net/blog/20-best-staffing-websites), [Colorlib](https://colorlib.com/wp/staffing-agency-website-examples/)
 
 Figures for the reference companies are quoted as published on their pages at the time of research (October 2026) and may change.

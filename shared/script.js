@@ -119,7 +119,7 @@ function initMotion() {
     '.hero-text, .hero-grid > div:first-child, .opening, .stats-grid, .figures-grid',
     '.row .text, .block, .process .wrap, .motto-wrap > div, .who > div, .contact-grid, .page > section, .page > .opening, .team'
   ];
-  const revealSel = '.hero-text > *, .hero-grid > div:first-child > *, .opening > *, .stats-grid > div, .figures-grid > div, .figures > div, .figures dl > div, .row > .label, .text > h2, .text > p, .list li, .grid2 > div, .block > h2, .who > div > *, .motto-wrap > div > *, .motto li, .motto > div, .flow li, .timeline li, details, .two > div, .promise > div, .contact-grid > *, .page > section > h2, .page > section > p, .paths';
+  const revealSel = '.hero-text > *, .hero-grid > div:first-child > *, .opening > *, .stats-grid > div, .figures-grid > div, .figures > div, .figures dl > div, .row > .label, .text > h2, .text > p, .list li, .grid2 > div, .block > h2, .who > div > *, .motto-wrap > div > *, .motto li, .motto > div, .flow li, .timeline li, details, .two > div, .promise > div, .contact-grid > *, .page > section > h2, .page > section > p, .paths, .ex-item, .ex-head';
   const items = [...document.querySelectorAll(revealSel)].filter(el => !el.closest('#loader') && !el.closest('.panel[hidden]'));
   const seen = new Set();
   items.forEach(el => {

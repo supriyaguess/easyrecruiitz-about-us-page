@@ -21,3 +21,9 @@ body:has(#loader:not(.done)) { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .loader-mark img, .loader-bar::after { animation: none; }
 }
+
+/* loader themes for designs 4 to 6 */
+#loader.l-statement { --l-bg: #f4f2ec; --l-line: #0e2a66; }
+#loader.l-arch { --l-bg: #070c1c; --l-text: #a9b4d0; --l-line: #4c9bff; --l-track: rgba(255,255,255,.16); }
+#loader.l-lower { --l-bg: #0f2a63; --l-text: #cfe0ff; --l-line: #19d3e6; --l-track: rgba(255,255,255,.18); }
+#loader.l-brand { --l-bg: #ffffff; --l-line: #02bfc9; --l-track: rgba(2,51,118,.14); --l-text: #023376; }

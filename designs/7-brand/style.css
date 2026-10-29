@@ -1,0 +1,97 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1120px,90%);margin-inline:auto}
+body{background:var(--bg);color:var(--ink);line-height:1.6;font-family:var(--font);font-size:17px}
+.site-header{position:sticky;top:0;z-index:20;background:var(--hdr);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0;gap:1rem}
+.brand img{height:54px;width:auto}
+.nav-links{display:flex;align-items:center;gap:1.6rem;font-size:.95rem;font-weight:500}
+.nav-links a{text-decoration:none}
+.nav-links a:not(.btn):hover,.nav-links .current{color:var(--accent)}
+.nav-toggle{display:none;background:none;border:0;padding:.5rem;cursor:pointer}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
+.ic{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block}
+.cutout{position:relative;display:flex;justify-content:center;align-items:flex-end;aspect-ratio:4/5;width:100%;max-width:380px;margin-inline:auto}
+.cutout img{height:100%;width:auto;max-width:none;position:relative;z-index:2}
+.hero-art img{position:relative;z-index:2}
+.how-note{color:var(--muted);margin:.4rem 0 1.6rem}
+form{display:grid;gap:1rem;align-content:start}
+form label{display:grid;gap:.3rem;font-size:.85rem;font-weight:600}
+form input[type=text],form input[type=email]{padding:.75rem .9rem;border:0;border-radius:var(--rad);font:inherit;color:#111}
+form input:focus{outline:3px solid var(--focus)}
+.form-status{font-size:.88rem;min-height:1.3em}
+.footer{padding:1.4rem 0;font-size:.85rem}
+.foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem}
+.details{margin-top:1.4rem;line-height:1.9}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.big{display:block;line-height:1.05}.cap{display:block}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:2rem}.stats-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.nav-toggle{display:block}.nav-links{position:absolute;top:100%;left:0;right:0;background:var(--hdr);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:.6rem 5%;display:none}.nav-links.open{display:flex}.nav-links a{padding:.8rem 0;border-bottom:1px solid var(--line)}body{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+/* ===== Design 7: Brand colours. The exact palette of the Easy Recruitz logo: navy #023376, turquoise #02bfc9, champagne gold #e7ca7b ===== */
+:root{--bg:#ffffff;--ink:#0d2447;--muted:#4a5a78;--line:#dfe5ee;--hdr:#fff;--accent:#023376;--rad:10px;--focus:#e7ca7b;--font:'Nunito Sans',system-ui,sans-serif;
+ --navy:#023376;--teal:#02bfc9;--gold:#e7ca7b;--cream:#f8f2e1;--mist:#d9f4f6;
+ --p-accent:#023376;--p-ink:#0d2447;--p-muted:#4a5a78;--p-rule:#dfe5ee;--p-soft:#d9f4f6}
+body[data-design="brand"]{--s-ink:#0d2447;--s-muted:#4a5a78;--s-rule:#dfe5ee;--s-accent:#023376;--s-tint:#d9f4f6;--s-alt:#f8f2e1;--s-card:#fff;--s-head:'Playfair Display',Georgia,serif;--s-hw:600;--s-r:14px;
+ --o1:#d9f4f6;--o2:#02bfc9;--o3:#e7ca7b;--o4:#023376;--amp:1;--m-accent:#02bfc9}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.12;color:var(--navy);letter-spacing:-.01em}
+h3{font-family:'Nunito Sans',sans-serif;font-weight:800;letter-spacing:0}
+.tricolour{display:flex;height:6px}.tricolour i{flex:1}.tricolour i:nth-child(1){background:var(--navy)}.tricolour i:nth-child(2){background:var(--teal)}.tricolour i:nth-child(3){background:var(--gold)}
+.kick7{font-weight:800;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:#0a8f99;margin-bottom:.7rem}
+.btn{display:inline-block;background:var(--navy);color:#fff;padding:.85rem 1.7rem;border-radius:99px;font-weight:800;text-decoration:none;border:0;cursor:pointer;font-family:inherit;font-size:.98rem;transition:transform .2s,background .2s}
+.btn:hover{background:#04264f;transform:translateY(-2px)}
+.hero7{padding:4.5rem 0 3rem;position:relative;overflow:hidden}
+.hero7-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+.hero7 h1{font-size:clamp(2.6rem,5.8vw,4.8rem)}
+.hero7 h1 em{font-style:italic;color:var(--teal)}
+.hero7 .lead{font-size:1.15rem;color:var(--muted);margin:1.3rem 0 1.8rem;max-width:30em}
+.hero-links{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.textlink{font-weight:800;color:var(--navy);text-underline-offset:4px}
+.ring7{position:relative;width:min(470px,100%);aspect-ratio:1;margin-left:auto;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3%}
+.ring7::before{content:"";position:absolute;inset:7%;border-radius:50%;background:var(--navy);z-index:0}
+.ring7::after{content:"";position:absolute;inset:0;border-radius:50%;border:9px solid transparent;border-top-color:var(--teal);border-right-color:var(--teal);z-index:1;animation:spin7 28s linear infinite}
+@keyframes spin7{to{rotate:360deg}}
+.dot7{position:absolute;left:2%;top:18%;width:54px;height:54px;border-radius:50%;background:var(--gold);z-index:3;animation:bob7 6s ease-in-out infinite}
+@keyframes bob7{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.ring7 img{height:110%;width:auto;margin:0 -1.1rem}
+.wave7{line-height:0}.wave7 svg{display:block;width:100%;height:70px}.wave7 path{fill:var(--navy)}
+.stats7{background:var(--navy);padding:2.5rem 0 3.5rem;color:#fff}
+.stats7 .ic{color:var(--teal);margin-bottom:.6rem}
+.stats7 .big{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5vw,3.8rem);font-weight:600;color:var(--gold)}
+.stats7 .cap{color:#cfe0f5}
+.who7{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center;padding:5rem 0}
+.who7 h2{font-size:clamp(1.7rem,3.4vw,2.6rem);margin-bottom:1.2rem}
+.who7 p{color:var(--muted);margin-bottom:1rem}
+.svc7s{background:var(--cream);padding:5rem 0}
+.svc7s h2,.how7 h2{font-size:clamp(1.9rem,3.8vw,2.9rem);margin-bottom:2rem;max-width:18em}
+.svc7-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.svc7{background:#fff;border-radius:18px;padding:1.6rem 1.4rem;border-top:5px solid var(--teal);box-shadow:0 8px 24px rgba(2,51,118,.07);transition:transform .3s,box-shadow .3s}
+.svc7:nth-child(2){border-top-color:var(--gold)}.svc7:nth-child(3){border-top-color:var(--navy)}.svc7:nth-child(4){border-top-color:var(--teal)}
+.svc7:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(2,51,118,.14)}
+.svc7 .ic{color:var(--navy);width:40px;height:40px;margin-bottom:.9rem}
+.svc7 h3{font-size:1.1rem;margin-bottom:.3rem}.svc7 p{color:var(--muted);font-size:.95rem}
+.how7{padding:5rem 0}
+.motto7{background:var(--cream);padding:5rem 0}
+.motto7 ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
+.motto7 li{background:var(--navy);color:#fff;border-radius:20px;padding:1.6rem 1.4rem}
+.motto7 .mn{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--gold);display:block;line-height:1;margin-bottom:.8rem}
+.motto7 h3{color:#fff;font-size:1.1rem;margin-bottom:.4rem}
+.motto7 p{color:#cfe0f5;font-size:.92rem}
+.contact{background:var(--navy);color:#fff;padding:5rem 0;position:relative}
+.contact::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--teal) 0 50%,var(--gold) 50% 100%)}
+.contact h2{color:#fff;font-size:clamp(2rem,4.2vw,3.1rem);margin-bottom:.8rem}
+.contact .details{color:#cfe0f5}
+.choice{--c-border:rgba(255,255,255,.55);--c-text:#fff;--c-on-bg:var(--gold);--c-on-text:#023376;--c-focus:#fff;--c-radius:10px}
+form .btn{background:var(--teal);color:#032a3a}
+form .btn:hover{background:#27d3dc}
+.form-status{color:#cfe0f5}.form-status.error{color:#ffc2bd}
+.footer{background:#021f4a;color:#9fb6d8}
+.cutout,.panel-photo{position:relative}
+.panel-photo img{position:relative;z-index:2}
+@media(max-width:1000px){.svc7-grid,.motto7 ol{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.hero7-grid,.who7{grid-template-columns:1fr}.ring7{margin:1rem auto 0;width:min(360px,100%)}}
+@media(max-width:720px){.svc7-grid,.motto7 ol{grid-template-columns:1fr}.wave7 svg{height:40px}}
